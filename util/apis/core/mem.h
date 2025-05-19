@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   mem.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 01:35:50 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 01:46:24 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#include "core.h"
 
-# include "core/primitives.h"
-# include "core.h"
+t_bool USE
+mem_eq(const void *a, const void *b, t_size byte_count);
 
-typedef struct s_span
-{
-	t_size	start;
-	t_size	len;
-}			t_span;
+void
+mem_copy(void *dst, const void *src, t_size byte_count);
 
+void
+*mem_alloc(t_size size);
 
-#endif
+void
+*mem_buff_alloc(t_size item_count, t_size item_size);
+
+void
+mem_free(void *ptr);

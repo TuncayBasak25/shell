@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   new.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 02:22:31 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 02:23:21 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#include "map/map_str.h"
 
-# include "core/primitives.h"
-# include "core.h"
-
-typedef struct s_span
+t_map_str USE
+new_map_str(void)
 {
-	t_size	start;
-	t_size	len;
-}			t_span;
-
-
-#endif
+	return ((t_map_str){0});
+}

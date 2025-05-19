@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   drop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 01:30:48 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 01:47:18 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#include "array/str/darr_str.h"
+#include "string.h"
+#include "core/mem.h"
 
-# include "core/primitives.h"
-# include "core.h"
-
-typedef struct s_span
+void
+drop_darr_str(t_darr_str *self)
 {
-	t_size	start;
-	t_size	len;
-}			t_span;
+	t_size	i;
 
-
-#endif
+	i = -1;
+	while (++i < self->len)
+		drop_str(&self->buff[i]);
+	mem_free(self->buff);
+	*self = new_darr_str();
+}

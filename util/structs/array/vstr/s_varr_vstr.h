@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   s_varr_vstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/18 16:11:33 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/18 16:14:21 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#ifndef S_VARR_VSTR_H
+# define S_VARR_VSTR_H
 
-# include "core/primitives.h"
-# include "core.h"
+#include "string/s_vstr.h"
 
-typedef struct s_span
+typedef struct s_varr_vstr
 {
-	t_size	start;
-	t_size	len;
-}			t_span;
-
+	const t_vstr	*buff;
+	t_size			len;
+}					t_varr_vstr;
 
 #endif

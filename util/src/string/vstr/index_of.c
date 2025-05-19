@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   index_of.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 01:55:07 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 01:57:02 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#include "string.h"
 
-# include "core/primitives.h"
-# include "core.h"
-
-typedef struct s_span
+t_size USE
+vstr_index_of(t_vstr str, char c)
 {
-	t_size	start;
-	t_size	len;
-}			t_span;
+	t_size	i;
 
-
-#endif
+	i = -1;
+	while (++i < str.len)
+		if (str.buff[i] == c)
+			break ;
+	return (i);
+}

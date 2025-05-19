@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   error_log.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 00:43:35 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 00:47:56 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#include "string/cstr.h"
+#include <unistd.h>
 
-# include "core/primitives.h"
-# include "core.h"
-
-typedef struct s_span
+void
+error_log(const t_cstr message)
 {
-	t_size	start;
-	t_size	len;
-}			t_span;
-
-
-#endif
+	write(2, message, cstr_len(message));
+	write(2, "\n", 1);
+}

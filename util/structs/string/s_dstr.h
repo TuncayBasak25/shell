@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   s_dstr.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/17 15:58:01 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/18 14:59:01 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#ifndef S_DSTR_H
+# define S_DSTR_H
 
-# include "core/primitives.h"
 # include "core.h"
 
-typedef struct s_span
+/**
+ * @struct t_dstr
+ * @brief Dynamically growable string buffer.
+ *
+ * Fully owned buffer with explicit capacity management.
+ * 
+ * Used for building or appending strings.
+ */
+typedef struct s_dstr
 {
-	t_size	start;
-	t_size	len;
-}			t_span;
-
+	char	*buff; /** Pointer to the allocated buffer. */
+	t_size	len;   /** Current length of used content. */
+	t_size	cap;   /** Total allocated capacity in bytes. */
+}			t_dstr;
 
 #endif

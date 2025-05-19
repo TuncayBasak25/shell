@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   vstr.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 01:00:11 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 01:09:47 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#include "map/map_str.h"
+#include "string.h"
 
-# include "core/primitives.h"
-# include "core.h"
-
-typedef struct s_span
+t_vstr USE
+map_vstr_get(const t_map_str *self, t_vstr key)
 {
-	t_size	start;
-	t_size	len;
-}			t_span;
+	t_size	index;
 
-
-#endif
+	index = -1;
+	while (++index < self->keys.len)
+	{
+		if (str_eq_vstr(&self->keys.buff[index], key))
+			break ;
+	}
+	if (index == self->keys.len)
+		return (empty_vstr());
+	return (str_vstr(&self->values.buff[index]));
+}

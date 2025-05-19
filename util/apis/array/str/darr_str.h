@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   darr_str.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/18 16:49:26 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 02:18:31 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#ifndef DARR_STR_H
+# define DARR_STR_H
 
-# include "core/primitives.h"
-# include "core.h"
+# include "array/str/s_darr_str.h"
 
-typedef struct s_span
-{
-	t_size	start;
-	t_size	len;
-}			t_span;
+t_darr_str USE
+new_darr_str(void);
 
+void
+drop_darr_str(t_darr_str *self);
+
+t_result
+darr_str_push(t_darr_str *self, t_vstr str, t_size index);
+
+void
+darr_str_drop(t_darr_str *self, t_size index);
 
 #endif

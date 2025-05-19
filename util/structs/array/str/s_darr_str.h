@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   s_darr_str.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/18 16:11:33 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/18 16:49:00 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#ifndef S_DARR_STR_H
+# define S_DARR_STR_H
 
-# include "core/primitives.h"
-# include "core.h"
+#include "string/s_str.h"
 
-typedef struct s_span
+typedef struct s_darr_str
 {
-	t_size	start;
+	t_str	*buff;
 	t_size	len;
-}			t_span;
-
+	t_size	cap;
+}			t_darr_str;
 
 #endif

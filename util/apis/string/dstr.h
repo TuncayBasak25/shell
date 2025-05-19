@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   dstr.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/17 20:15:05 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 00:42:22 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#ifndef DSTR_H
+# define DSTR_H
 
-# include "core/primitives.h"
-# include "core.h"
+# include "string/s_dstr.h"
+# include "string/s_mstr.h"
 
-typedef struct s_span
-{
-	t_size	start;
-	t_size	len;
-}			t_span;
+t_dstr USE
+new_dstr(t_cstr cstr);
 
+t_dstr USE
+empty_dstr(void);
+
+t_result
+dstr_append(t_dstr *self, t_vstr str);
+
+t_result
+dstr_push_back(t_dstr *self, char c);
 
 #endif

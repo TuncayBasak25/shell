@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_str.h                                            :+:      :+:    :+:   */
+/*   s_map_str.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 15:58:01 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/17 16:21:21 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/18 16:41:14 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/18 23:03:32 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_STR_H
-# define S_STR_H
+#ifndef S_MAP_STR
+# define S_MAP_STR
 
-# include "core.h"
+# include "array/str/s_darr_str.h"
 
-typedef struct s_str
+typedef struct s_map_str
 {
-	char	*buff;
-	t_size	len;
-}			t_str;
+	t_darr_str	keys;
+	t_darr_str	values;
+}				t_map_str;
 
 #endif

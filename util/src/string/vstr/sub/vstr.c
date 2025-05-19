@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   vstr.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 00:50:09 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 00:57:52 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#include "string.h"
 
-# include "core/primitives.h"
-# include "core.h"
-
-typedef struct s_span
+t_vstr USE
+vstr_subvstr(t_vstr str, t_isize offs, t_size len)
 {
-	t_size	start;
-	t_size	len;
-}			t_span;
+	t_size	abs_offs;
 
-
-#endif
+	abs_offs = umin(uabs(offs), str.len);
+	str.len = umin(str.len - abs_offs, len);
+	if (offs < 0)
+		str.buff = str.buff + abs_offs;
+	return (str);
+}

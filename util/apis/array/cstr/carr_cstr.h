@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   carr_cstr.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/18 15:22:14 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/18 15:23:28 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#ifndef CARR_CSTR_H
+# define CARR_CSTR_H
 
-# include "core/primitives.h"
-# include "core.h"
-
-typedef struct s_span
-{
-	t_size	start;
-	t_size	len;
-}			t_span;
-
+# include "array/cstr/s_carr_cstr.h"
 
 #endif

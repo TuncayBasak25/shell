@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.h                                             :+:      :+:    :+:   */
+/*   string.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:17:27 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/18 20:04:45 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/18 17:50:13 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/18 18:34:27 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#ifndef STRING_H
+# define STRING_H
 
-# include "core/primitives.h"
-# include "core.h"
-
-typedef struct s_span
-{
-	t_size	start;
-	t_size	len;
-}			t_span;
-
+# include "string/cstr.h"
+# include "string/str.h"
+# include "string/dstr.h"
+# include "string/vstr.h"
+# include "string/mstr.h"
 
 #endif
