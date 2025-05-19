@@ -6,7 +6,7 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 05:32:33 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 13:05:08 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/05/19 01:35:14 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,63 @@ typedef enum e_flow
 	BREAK,
 	CONTINUE
 }	t_flow;
+
+/**
+ * @struct s_span
+ * @brief A bounded region starting from `start`, covering `len` elements
+ */
+typedef struct s_span
+{
+	t_size	start; /** Starting index */
+	t_size	len;/** Number of elements in the span */
+}			t_span;
+
+/**
+ * @struct s_range
+ * @brief A half-open interval from `start` to `end` (exclusive)
+ */
+typedef struct s_range
+{
+	t_size	start;/** Inclusive start index */
+	t_size	end;/** Exclusive end index */
+}			t_range;
+
+/**
+ * @struct t_vstr
+ * @brief Read-only view into a string buffer.
+ *
+ * Non-owning, immutable view into a buffer segment.
+ * 
+ * Useful for slicing or referencing constant data without ownership.
+ */
+typedef struct s_vstr
+{
+	const char	*buff;/** Pointer to the start of the view. */
+	t_size		len;/** Length of the view. */
+}				t_vstr;
+
+t_vstr USE
+lstr(t_cstr cstr);
+
+t_span USE
+span(t_size start, t_size len);
+
+t_range USE
+range(t_size start, t_size end);
+
+void
+error_log(const t_cstr message);
+
+t_result USE
+assert(t_bool condition, const t_cstr message);
+
+t_result
+debug(t_bool condition, const t_cstr message);
+
+t_size USE
+umin(t_size a, t_size b);
+
+t_size USE
+uabs(t_isize a);
 
 #endif

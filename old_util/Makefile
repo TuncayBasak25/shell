@@ -5,26 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/19 09:07:35 by tbasak            #+#    #+#              #
-#    Updated: 2025/05/19 13:00:21 by tbasak           ###   ########.fr        #
+#    Created: 2025/05/17 15:56:05 by tbasak            #+#    #+#              #
+#    Updated: 2025/05/19 01:45:29 by tbasak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minishell
-
+NAME = libutil.a
 SRC = $(shell find src -name "*.c")
-
 OBJ = $(SRC:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I./include -I./util/apis -I./util/types
+CFLAGS = -Wall -Wextra -Werror -I./include -I./structs -I./apis
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	@make -C util
-	$(CC) $(CFLAGS) $(OBJ) -lreadline -L./util -lutil -o $(NAME)
+	ar rcs $(NAME) $(OBJ)
 
 all: $(NAME)
 
