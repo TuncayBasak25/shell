@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem.h                                              :+:      :+:    :+:   */
+/*   vstr.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 01:35:50 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/20 06:18:12 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/17 20:15:05 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 22:02:53 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MEM_H
-# define MEM_H
+#ifndef VSTR_H
+# define VSTR_H
 
-# include "core.h"
+# include "string/s_str.h"
+# include "string/s_vstr.h"
+# include "string/s_mstr.h"
 
-t_bool USE
-mem_eq(const void *a, const void *b, t_size byte_count);
+t_vstr USE
+empty_vstr(void);
 
-void
-mem_copy(void *dst, const void *src, t_size byte_count);
+t_vstr USE
+build_vstr(const char *buff, t_size len);
 
-void
-mem_shift(void *dst, t_size dst_len, t_size offs);
+t_vstr USE
+build_subvstr(const char *buff, t_size buff_len, t_isize offs, t_size len);
 
-void
-*mem_alloc(t_size size);
+t_size USE
+vstr_index_of(t_vstr str, char c);
 
-void
-*mem_realloc(void *ptr, t_size new_size, t_size copy_size);
-
-void
-mem_free(void *ptr);
+t_vstr USE
+vstr_vstr(t_vstr str, t_isize offs, t_size len);
 
 #endif

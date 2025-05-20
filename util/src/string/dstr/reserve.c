@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_arr_void.h                                       :+:      :+:    :+:   */
+/*   reserve.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 12:33:12 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 16:55:13 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 09:43:51 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 09:46:58 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_ARR_VOID_H
-# define S_ARR_VOID_H
+#include "string.h"
 
-# include "core.h"
-
-typedef struct s_arr_void
+t_dstr USE
+reserve_dstr(t_size cap)
 {
-	void	*buff;
-	t_size	len;
-	t_size	item_size;
-}			t_arr_void;
+	t_dstr	self;
 
-#endif
+	self = empty_dstr();
+	dstr_grow(&self, cap);
+	return (self);
+}

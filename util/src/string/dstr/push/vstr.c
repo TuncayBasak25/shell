@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem.h                                              :+:      :+:    :+:   */
+/*   vstr.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 01:35:50 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/20 06:18:12 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 10:36:28 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 11:20:49 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MEM_H
-# define MEM_H
+#include "string.h"
 
-# include "core.h"
+t_result
+dstr_push_vstr(t_dstr *self, t_vstr str, t_size index)
+{
+	t_mstr	tail;
 
-t_bool USE
-mem_eq(const void *a, const void *b, t_size byte_count);
-
-void
-mem_copy(void *dst, const void *src, t_size byte_count);
-
-void
-mem_shift(void *dst, t_size dst_len, t_size offs);
-
-void
-*mem_alloc(t_size size);
-
-void
-*mem_realloc(void *ptr, t_size new_size, t_size copy_size);
-
-void
-mem_free(void *ptr);
-
-#endif
+	if (dstr_extend(self, str.len) == FAIL)
+		return (FAIL);
+	index = umin(index, self->len);
+	self->len += str.len;
+	tail = dstr_mstr(self, index, self->len - index);
+	mstr_shift(tail, str.len);
+	mstr_copy_vstr(tail, str);
+	return (OK);
+}

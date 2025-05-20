@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem.h                                              :+:      :+:    :+:   */
+/*   cstr.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 01:35:50 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/20 06:18:12 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/17 20:15:05 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 22:53:40 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MEM_H
-# define MEM_H
+#ifndef CSTR_H
+# define CSTR_H
 
-# include "core.h"
+# include "string/s_dstr.h"
+# include "string/s_vstr.h"
+# include "string/s_mstr.h"
 
-t_bool USE
-mem_eq(const void *a, const void *b, t_size byte_count);
-
-void
-mem_copy(void *dst, const void *src, t_size byte_count);
-
-void
-mem_shift(void *dst, t_size dst_len, t_size offs);
+t_cstr USE
+cstr_from_own_dstr(t_dstr *dstr);
 
 void
-*mem_alloc(t_size size);
+drop_cstr(t_cstr cstr);
 
-void
-*mem_realloc(void *ptr, t_size new_size, t_size copy_size);
+t_size USE
+cstr_len(const t_cstr cstr);
 
-void
-mem_free(void *ptr);
+t_vstr USE
+cstr_vstr(const t_cstr cstr, t_isize offset, t_size len);
 
 #endif

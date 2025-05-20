@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem.h                                              :+:      :+:    :+:   */
+/*   index_of.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 01:35:50 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/20 06:18:12 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 01:55:07 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 01:57:02 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MEM_H
-# define MEM_H
+#include "string.h"
 
-# include "core.h"
+t_size USE
+vstr_index_of(t_vstr str, char c)
+{
+	t_size	i;
 
-t_bool USE
-mem_eq(const void *a, const void *b, t_size byte_count);
-
-void
-mem_copy(void *dst, const void *src, t_size byte_count);
-
-void
-mem_shift(void *dst, t_size dst_len, t_size offs);
-
-void
-*mem_alloc(t_size size);
-
-void
-*mem_realloc(void *ptr, t_size new_size, t_size copy_size);
-
-void
-mem_free(void *ptr);
-
-#endif
+	i = -1;
+	while (++i < str.len)
+		if (str.buff[i] == c)
+			break ;
+	return (i);
+}

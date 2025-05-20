@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_darr_void.h                                      :+:      :+:    :+:   */
+/*   s_map_str.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 12:33:12 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 13:31:04 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/18 16:41:14 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/18 23:03:32 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_DARR_VOID_H
-# define S_DARR_VOID_H
+#ifndef S_MAP_STR
+# define S_MAP_STR
 
-# include "core.h"
+# include "array/str/s_darr_str.h"
 
-typedef struct s_darr_void
+typedef struct s_map_str
 {
-	void	*buff;
-	t_size	len;
-	t_size	cap;
-	t_size	item_size;
-}			t_darr_void;
+	t_darr_str	keys;
+	t_darr_str	values;
+}				t_map_str;
 
 #endif

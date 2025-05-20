@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem.h                                              :+:      :+:    :+:   */
+/*   new.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 01:35:50 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/20 06:18:12 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 09:29:25 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 10:36:00 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MEM_H
-# define MEM_H
+#include "string.h"
 
-# include "core.h"
+t_dstr USE
+new_dstr(t_cstr cstr)
+{
+	t_size	len;
+	t_dstr	self;
 
-t_bool USE
-mem_eq(const void *a, const void *b, t_size byte_count);
-
-void
-mem_copy(void *dst, const void *src, t_size byte_count);
-
-void
-mem_shift(void *dst, t_size dst_len, t_size offs);
-
-void
-*mem_alloc(t_size size);
-
-void
-*mem_realloc(void *ptr, t_size new_size, t_size copy_size);
-
-void
-mem_free(void *ptr);
-
-#endif
+	len = cstr_len(cstr);
+	self = reserve_dstr(len);
+	if (self.cap < len)
+		return (self);
+	self.len = len;
+	dstr_copy_cstr(&self, cstr);
+	return (self);
+}

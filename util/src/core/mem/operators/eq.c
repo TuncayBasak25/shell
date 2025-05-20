@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem.h                                              :+:      :+:    :+:   */
+/*   eq.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 01:35:50 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/20 06:18:12 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 01:16:53 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/19 01:26:34 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MEM_H
-# define MEM_H
-
-# include "core.h"
+#include "core.h"
 
 t_bool USE
-mem_eq(const void *a, const void *b, t_size byte_count);
+mem_eq(const void *a, const void *b, t_size byte_count)
+{
+	const t_u8	*ma;
+	const t_u8	*mb;
+	t_size		i;
 
-void
-mem_copy(void *dst, const void *src, t_size byte_count);
-
-void
-mem_shift(void *dst, t_size dst_len, t_size offs);
-
-void
-*mem_alloc(t_size size);
-
-void
-*mem_realloc(void *ptr, t_size new_size, t_size copy_size);
-
-void
-mem_free(void *ptr);
-
-#endif
+	if (byte_count > 0 && (!a || !b))
+	{
+		error_log("Mem eq called with size > 0 but null ptr!");
+		return (FALSE);
+	}
+	ma = (const t_u8 *)a;
+	mb = (const t_u8 *)b;
+	i = -1;
+	while (++i < byte_count)
+		if (ma[i] != mb[i])
+			return (FALSE);
+	return (TRUE);
+}

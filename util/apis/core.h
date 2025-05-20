@@ -6,7 +6,7 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 05:32:33 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 13:05:08 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/05/19 22:47:54 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,8 @@ typedef enum e_flow
 	BREAK,
 	CONTINUE
 }	t_flow;
+
+void
+error_log(t_cstr message);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 17:48:03 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 11:54:53 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/05/19 22:53:52 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ build_prompt(const t_map_str *env)
 	dstr_push_vstr(&prompt, map_cstr_get(env, "USER"), -1);
 	dstr_push_char(&prompt, '@', -1);
 	dstr_push_vstr(&prompt, map_cstr_get(env, "HOME"), -1);
-	return (cstr_from_dstr(&prompt));
+	return (cstr_from_own_dstr(&prompt));
 }
 
 int	g_sig = 0;
@@ -44,9 +44,9 @@ prompt(const t_map_str *env)
 		return (empty_str());
 	prompt_message = build_prompt(env);
 	line = readline(prompt_message);
-	drop_cstr(&prompt_message);
+	drop_cstr(prompt_message);
 	if (g_sig)
 		dup2(save_stdin, 0);
 	close(save_stdin);
-	return (str_from_cstr(&line));
+	return (str_from_own_cstr(line));
 }
