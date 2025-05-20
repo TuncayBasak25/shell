@@ -31,12 +31,12 @@ cat << EOF > "$SFILE"
 #ifndef ${SENTINEL_S}
 # define ${SENTINEL_S}
 
-# include "core.h"
+# include "${GENERIC}.h"
 
 typedef struct s_${TYPE}_${GENERIC}
 {
 
-}	t_${TYPE}_${GENERIC};
+}			t_${TYPE}_${GENERIC};
 
 #endif
 EOF
@@ -46,7 +46,7 @@ cat << EOF > "$AFILE"
 #ifndef ${SENTINEL_A}
 # define ${SENTINEL_A}
 
-# include "s_${TYPE}_${GENERIC}.h"
+# include "${GENERIC}/s_${TYPE}_${GENERIC}.h"
 
 #endif
 EOF
@@ -67,7 +67,7 @@ cat << EOF > "types/s_${TYPE}.h"
 typedef struct s_${TYPE}
 {
 
-}	t_${TYPE};
+}			t_${TYPE};
 
 #endif
 EOF

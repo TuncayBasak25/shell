@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_vstr.h                                           :+:      :+:    :+:   */
+/*   clone.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 15:58:01 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 21:19:40 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/20 15:35:00 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/20 15:53:38 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_VSTR_H
-# define S_VSTR_H
+#include "arr/arr_$o.h"
+#include "$o.h"
 
-# include "core.h"
-
-typedef struct s_vstr
+t_arr_$o USE
+clone_arr_$o(const t_arr_$o *src)
 {
-	const char	*buff;/** Pointer to the start of the view. */
-	t_size		len;/** Length of the view. */
-}				t_vstr;
+	t_arr_$o	copy;
+	t_size	i;
 
-#endif
+	copy = new_arr_$o(src->len);
+	i = -1;
+	while (++i < copy.len)
+		copy.buff[i] = clone_$o(&src->buff[i]);
+	return (copy);
+}

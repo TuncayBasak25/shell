@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   new.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:21:51 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 00:38:46 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/20 15:35:00 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/20 15:41:11 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "map/map_str.h"
+#include "arr/arr_$o.h"
+#include "mem.h"
 
-
-t_i32	main(t_i32 ac, t_cstr av[], t_carr_cstr envp)
+t_arr_$o USE
+new_arr_$o(t_size len)
 {
-	(void)ac;
-	(void)av;
-	(void)envp;
-	t_map_str env = env_map_init(envp);
-	debug_map_str(&env);
-	drop_map_str(&env);
+	t_$o	*buff;
+
+	buff = (t_$o *)mem_alloc(sizeof(t_$o) * len);
+	if (buff == 0)
+		return (empty_arr_$o());
+	return (build_arr_$o(buff, len));
 }
