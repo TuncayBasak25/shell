@@ -84,9 +84,25 @@ replace_vars() {
 replace_vars < "$HDR_SRC" > "$HDR_DST"
 replace_vars < "$API_SRC" > "$API_DST"
 
-for FILE in "${SRC_DIR}/\$${GEN}"/*.c; do
-	DEST="$SRC_DST/$(basename "$FILE")"
-	replace_vars < "$FILE" > "$DEST"
+# Ensure fresh destination
+rm -rf "$SRC_DST"
+mkdir -p "$SRC_DST"
+
+# Actual template dir is literally named "$o" or "$t"
+GENERIC_SRC_DIR="$SRC_DIR/\$${GEN}"
+
+if [ ! -d "$GENERIC_SRC_DIR" ]; then
+	echo "❌ Template directory not found: $GENERIC_SRC_DIR"
+	exit 1
+fi
+
+# Recursively copy and transform each file
+find "$GENERIC_SRC_DIR" -type f -name "*.c" | while read -r FILE; do
+	REL_PATH="${FILE#$GENERIC_SRC_DIR/}"
+	DEST_FILE="$SRC_DST/$REL_PATH"
+	mkdir -p "$(dirname "$DEST_FILE")"
+	replace_vars < "$FILE" > "$DEST_FILE"
 done
+
 
 echo "✅ Impl done: ${SUBJECT}_${CONCRETE} from $KIND → using $LOWVAR/$UPVAR"
