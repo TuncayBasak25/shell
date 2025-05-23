@@ -6,7 +6,7 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 05:32:33 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 22:47:54 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/05/23 16:13:43 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ typedef char *				t_cstr;
  * The last element in the array must always be `NULL`.
  */
 typedef t_cstr				*t_carr_cstr;
+
+typedef t_i32				t_fd;
 
 /**
  * @enum e_result

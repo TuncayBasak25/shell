@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 01:12:00 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 12:17:11 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/23 13:43:59 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/23 13:45:02 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "util.h"
 
 t_vstr USE
-str_vstr(const t_str *self, t_isize offs, t_size len)
+str_vstr(const t_str *src, t_isize offs, t_size len)
 {
-	return (build_subvstr(self->buff, self->len, offs, len));
+	return (build_subvstr(src->buff, src->len, offs, len));
 }

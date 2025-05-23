@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 01:10:57 by tbasak            #+#    #+#             */
-/*   Updated: 2025/05/19 12:26:48 by tbasak           ###   ########.fr       */
+/*   Created: 2025/05/19 12:14:27 by tbasak            #+#    #+#             */
+/*   Updated: 2025/05/23 16:21:29 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "util.h"
 
 t_mstr USE
 empty_mstr(void)

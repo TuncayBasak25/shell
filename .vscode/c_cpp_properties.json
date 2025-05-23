@@ -5,8 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/include",
-                "${workspaceFolder}/util/apis",
-                "${workspaceFolder}/util/types"
+                "${workspaceFolder}/util"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

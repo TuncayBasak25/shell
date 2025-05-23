@@ -6,7 +6,7 @@
 #    By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/19 09:07:35 by tbasak            #+#    #+#              #
-#    Updated: 2025/05/19 13:00:21 by tbasak           ###   ########.fr        #
+#    Updated: 2025/05/22 13:24:39 by tbasak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = $(shell find src -name "*.c")
 OBJ = $(SRC:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I./include -I./util/apis -I./util/types
+CFLAGS = -Wall -Wextra -Werror -I./include -I./util
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
